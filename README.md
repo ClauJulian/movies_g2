@@ -18,7 +18,7 @@ git checkout nombre_dev
 => Para saber en que rama estamos y si hay cambios sin commit
 git status
 
-# Librerias Instaladas:
+# Librerias Instaladas en la Master [hay que instalarlas en cada DEV]:
 React-Router-Dom
 Firebase
 React-Helmet-Async

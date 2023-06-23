@@ -1,9 +1,12 @@
 import React from 'react'
+import UserProvider from '../auth/providers/UserProvider'
 // RooterProvider - lleva todas las librerias de estilos, contextos y redux
 
 export const RooterProvider = ({children}) => {
   return (
-    <div>{children}</div>
+    <UserProvider>
+      <div>{children}</div>
+    </UserProvider>
   )
 }
 

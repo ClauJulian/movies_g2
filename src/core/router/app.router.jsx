@@ -4,15 +4,28 @@ import HomeView from '../../pages/home/views/HomeView'
 import LoginView from '../../pages/login/views/LoginView'
 import ProtectedRoutes from '../auth/components/ProtectedRoutes';
 import PublicRoutes from '../auth/components/PublicRoutes';
+import PublicLayouts from '../layouts/Public/PublicLayouts';
 
 export const appRouter = createBrowserRouter([
     {
         path:"/",
-        element:(<ProtectedRoutes><HomeView/></ProtectedRoutes>)
+        element:(
+            <ProtectedRoutes>
+                <PublicLayouts>
+                    <HomeView/>
+                </PublicLayouts>
+            </ProtectedRoutes>
+        )
     },
     {
         path:"/login",
-        element:(<PublicRoutes><LoginView/></PublicRoutes>)
+        element:(
+            <PublicRoutes>
+                <PublicLayouts>
+                    <LoginView/>
+                </PublicLayouts>
+            </PublicRoutes>
+            )
     },
     
 ]);

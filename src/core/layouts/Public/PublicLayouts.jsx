@@ -1,11 +1,13 @@
 import React from 'react'
-import NavClau from '../../../components/navClau/NavClau'
+import Nav from '../../../components/nav/Nav'
 
 export const PublicLayouts = ({children}) => {
   return (
     <div>
-        <NavClau/>
-        {children}
+        <Nav/>
+        <div>
+          {children}
+        </div>
     </div>
   )
 }

@@ -18,7 +18,24 @@ export const tmdb = axios.create({
       details: (id) => `/movie/${id}`,
     //   videos: (id) => `/movie/${id}/videos`,
     //   recommendations: (id) => `/movie/${id}/recommendations`,
-    }}  
+    },
+    images: {
+      url: "https://image.tmdb.org/t/p",
+      sizes: {
+        small: "/w300",
+        medium: "/w500",
+        large: "/w1280",
+        original: "/original",
+      },
+      poster: (path, size = "large") => {
+        return `${tmdb_paths.images.url}${tmdb_paths.images.sizes[size]}${path}`;
+      },
+      backdrop: (path, size = "large") => {
+        return `${tmdb_paths.images.url}${tmdb_paths.images.sizes[size]}${path}`;
+      },
+    },
+  
+  }  
 
 
     // const tmdb_api_key= "7e7762d08933bf498bffaf370494b5f6";

@@ -1,7 +1,10 @@
+import { Spacer } from '@nextui-org/react';
 import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import Banner from '../../../components/banner/Banner';
+import CarouselAndTitle from '../../../components/Carousel/CarouselAndTitle';
 import { getPopularMovies } from '../../../services/tmdb.services';
+
 
 export const HomeView = () => {
 
@@ -55,23 +58,28 @@ export const HomeView = () => {
               <div
                 style={{
                 marginTop: "100px",
-                padding: "0 20px",
                 }}
-                >
-                <div>
-                    {!popularMoviesIsLoading && popularMovies.map((movie)=>{
-                    
-                    const path=movie.poster_path;            
-                    const poster_URL="https://image.tmdb.org/t/p/w300"+ path;
-                    
-                    return <div key={movie.id}>
-                        <div>{movie.title}</div> 
-                          <img src={poster_URL} alt="poster"/> 
-                        </div>
-                
-                    })}
-                </div>
-            </div>
+              >
+                  <CarouselAndTitle
+                  title="Las más populares"
+                  data={popularMovies}
+                  isLoading={popularMoviesIsLoading}
+                  >
+                  </CarouselAndTitle>
+
+                  <Spacer y={2} />
+
+                  <CarouselAndTitle
+                  title="Mis preferidas"
+                  data={popularMovies}
+                  isLoading={popularMoviesIsLoading}
+                  >
+                  </CarouselAndTitle>
+
+
+              </div>    
+
+      
         </div>
 
     </div>

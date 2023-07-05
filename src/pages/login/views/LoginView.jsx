@@ -2,7 +2,22 @@ import React from 'react'
 
 const LoginView = () => {
   return (
-    <div>LoginView</div>
+    <div  
+      style={{
+      marginTop: "100px",
+      width: "100vw",
+    }}>
+        
+         
+         <h1>LoginView</h1>
+            
+           
+
+  
+      
+
+    </div>
+
   )
 }
 

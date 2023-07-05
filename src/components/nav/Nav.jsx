@@ -12,9 +12,6 @@ export const Nav = () => {
   // estilos de next-ui
   const { theme } = useTheme();
 
-  
-
-
 
     const {user, handleUserIn, handleUserOut} = useContext(UserContext);
 
@@ -64,27 +61,31 @@ export const Nav = () => {
       <Navbar.Brand>
         <h1> MOVIES APP </h1>
       </Navbar.Brand>
+
       <Navbar.Content variant="underline">
       
-      {routes.map((route, i) => (
-         <Navbar.Item>
-                <Link to={route.path}>
-                  <Text css={s.link} h4>
-                    {route.name}
-                  </Text>
-                </Link>
-          </Navbar.Item>
-      ))}
-      <Navbar.Content>
-        <Button
-        onPress={handleUserIn}
-        >Logueado {user}</Button>
-        
-        <Button
-        onPress={handleUserOut}
-        >No Logueado {!user}</Button>
+        {user && routes.map((route, i) => (
+          <Navbar.Item>
+                  <Link to={route.path}>
+                    <Text css={s.link} h4>
+                      {route.name}
+                    </Text>
+                  </Link>
+            </Navbar.Item>
+        ))}
+
+        <Navbar.Content>
+          <Button
+          onPress={handleUserIn}
+          >Logueado {user}</Button>
+          
+          <Button
+          onPress={handleUserOut}
+          >No Logueado {!user}</Button>
         </Navbar.Content>
+
       </Navbar.Content>
+
     </Navbar>
   )
 }

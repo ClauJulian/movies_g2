@@ -3,10 +3,39 @@ import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import Banner from '../../../components/banner/Banner';
 import CarouselAndTitle from '../../../components/Carousel/CarouselAndTitle';
-import { getPopularMovies } from '../../../services/tmdb.services';
+import useFavorites from '../../../hooks/useFavorites';
+import { getPopularMovies, getMovieDetails } from '../../../services/tmdb.services';
+
 
 
 export const HomeView = () => {
+
+  const { favorites: favIds } = useFavorites();
+
+  // console.log(favIds);
+
+  // const promises =  getMovieDetails(favIds);
+
+ const { data: favorites, isLoading: favoritesIsLoading } = useSWR(
+    ["getFavorites", favIds],
+    () => {
+
+      if (!favIds) return;
+      
+      const promises = favIds.map((id) => getMovieDetails(id));
+
+      console.log(promises);
+
+      return Promise.allSettled(promises).then((res) => {
+          const data = res
+            .filter((e) => e.status === "fulfilled")
+            .map((e) => e.value);
+          return data.flat();
+        });
+      }
+      );
+
+
 
     const { data: popularMovies, isLoading: popularMoviesIsLoading } = useSWR(
         "getPopularMovies",
@@ -37,6 +66,8 @@ export const HomeView = () => {
       // popularSeries,
       // popularSeriesIsLoading,
     ]);
+
+
 
 
   return (
@@ -71,10 +102,12 @@ export const HomeView = () => {
 
                   <CarouselAndTitle
                   title="Mis preferidas"
-                  data={popularMovies}
-                  isLoading={popularMoviesIsLoading}
+                  data={favorites}
+                  isLoading={favoritesIsLoading}
                   >
                   </CarouselAndTitle>
+
+                  <Spacer y={10} />
 
 
               </div>    

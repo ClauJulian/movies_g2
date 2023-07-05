@@ -6,7 +6,6 @@ export const Banner = ({data}) => {
     const { theme } = useTheme();
     const banner_URL= "https://image.tmdb.org/t/p/w1280";
 
-    console.log(data);
   return (
     <Card
         css={{
@@ -32,9 +31,9 @@ export const Banner = ({data}) => {
         >
         <Card.Header
         css={{
-        //   backgroundColor: "rgba(0,0,0,0.5)",
-        //   backdropFilter: "blur(10px)",
-        //   transition: "all 0.3s ease-in-out",
+          backgroundColor: "rgba(0,0,0,0.5)",
+          backdropFilter: "blur(10px)",
+          transition: "all 0.3s ease-in-out",
         }}
         >
         <Col>
@@ -65,7 +64,7 @@ export const Banner = ({data}) => {
             // color={ishover ? theme.colors.text.value : "rgba(255,255,255,0.5)"}
             h3
           >
-            ★ {data?.rating}
+            ★ {data?.vote_average}
           </Text>
            <Button
             css={{

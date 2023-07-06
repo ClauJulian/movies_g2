@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Trabajo Final de React Codo a Codo _ Sitio estilo NetFlix
 
 # rama Master
@@ -30,14 +29,3 @@ Framer-Motion
 React-Hot-Toast
 
 # API de Movies
-=======
-## CLAU_DEV
-
-** Librerias Instaladas
-react-router-dom
-swr
-axios
-firebase
-@nextUi-org
-
->>>>>>> clau_dev

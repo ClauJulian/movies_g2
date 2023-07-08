@@ -1,5 +1,6 @@
+
 import React from 'react'
-import { Card, Text, Col, Button, useTheme, Grid } from '@nextui-org/react'
+import { Card, Text, Col, Button, useTheme, Spacer } from '@nextui-org/react'
 
 export const Banner = ({data}) => {
 
@@ -22,22 +23,22 @@ export const Banner = ({data}) => {
         <Card
         css={{
             
-            margin: "10vh 0px 0px 15px",
-            height: "60vh",
-            width:"350px",
-            backgroundColor: "rgba(0,0,0,0.3)",
-            backdropFilter: "blur(10px)"
+            margin: "0vh 0px 0px 0px",
+            height: "100vh",
+            width:"50%",
+            background: "linear-gradient(90deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%)",          
         }}
         >
-        <Card.Header
-        css={{
-          backgroundColor: "rgba(0,0,0,0.5)",
-          backdropFilter: "blur(10px)",
+      <Card.Header
+        css={{         
+          margin: "35vh 0px 0px 20px",
           transition: "all 0.3s ease-in-out",
+          height: "20%",
+          
         }}
         >
         <Col>
-          <Text h1 color="rgba(255,255,255,0.5)">
+          <Text h1 size={50} color="rgba(255,255,255)" >
             {data?.title}
           </Text>
         </Col>
@@ -45,43 +46,37 @@ export const Banner = ({data}) => {
 
       <Card.Footer
         css={{
-        //   backgroundColor: ishover ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0)",
-        //   backdropFilter: ishover ? "blur(10px)" : "blur(0px)",
-        //   transition: "all 0.3s ease-in-out",
+         margin: "0vh 0px 2px 20px",
           height: "50%",
+          width:"65%",          
         }}
       >
         <Col>
-          <Text
-            h4
+        <Text
+            size={15}
             color={theme.colors.text.value}
           >
             {data?.overview?.length > 300
               ? data?.overview?.substring(0, 200) + "..."
               : data?.overview}
           </Text>
-          <Text
-            // color={ishover ? theme.colors.text.value : "rgba(255,255,255,0.5)"}
-            h3
-          >
+          <Text size={25}>
             ★ {data?.vote_average}
           </Text>
+
+          <Spacer y={1} />
+
            <Button
             css={{
               backgroundColor: theme.colors.secondary.value,  
               color: theme.colors.text.value,
                 
             }}>
-            {/* auto
-            onPress={() => {
-              openModal({
-                content: <Details id={data?.id} title={data?.title} />,
-              });
-            }}
-          > */} 
             Ver Ahora
-          </Button>
+          </Button> 
         </Col>
+
+        
       </Card.Footer>
 
       </Card>

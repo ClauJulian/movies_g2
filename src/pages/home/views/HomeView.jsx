@@ -4,7 +4,7 @@ import useSWR from 'swr';
 import Banner from '../../../components/banner/Banner';
 import CarouselAndTitle from '../../../components/Carousel/CarouselAndTitle';
 import useFavorites from '../../../hooks/useFavorites';
-import { getPopularMovies, getMovieDetails } from '../../../services/tmdb.services';
+import { getPopularMovies, getMovieDetails, getTopRated, getUpcomingMovies } from '../../../services/tmdb.services';
 
 
 
@@ -36,12 +36,24 @@ export const HomeView = () => {
       );
 
 
-
     const { data: popularMovies, isLoading: popularMoviesIsLoading } = useSWR(
         "getPopularMovies",
         () => getPopularMovies()
       );
+
+      const { data: topRatedMovies, isLoading: topRatedMoviesIsLoading } = useSWR(
+        "getTopRated",
+        () => getTopRated()
+      );
     
+      const { data: upComingMovies, isLoading: upComingMoviesIsLoading } = useSWR(
+        "getUpcomingMovies",
+        () => getUpcomingMovies()
+      );
+
+     
+    
+   
      
 
     const [banner, setBanner] = useState(null);
@@ -66,8 +78,6 @@ export const HomeView = () => {
       // popularSeries,
       // popularSeriesIsLoading,
     ]);
-
-
 
 
   return (
@@ -97,6 +107,32 @@ export const HomeView = () => {
                   isLoading={popularMoviesIsLoading}
                   >
                   </CarouselAndTitle>
+
+                  <Spacer y={2} />
+
+                  <CarouselAndTitle
+                  title="Mejor calificadas"
+                  data={topRatedMovies}
+                  isLoading={topRatedMoviesIsLoading}
+                  >
+                  </CarouselAndTitle>
+
+                  <Spacer y={2} />
+
+                  
+
+                  <Spacer y={2} />
+
+                  <CarouselAndTitle
+                  title="A estrenar"
+                  data={upComingMovies}
+                  isLoading={upComingMoviesIsLoading}
+                  >
+                  </CarouselAndTitle>
+
+                  <Spacer y={2} />
+
+                 
 
                   <Spacer y={2} />
 

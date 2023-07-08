@@ -12,10 +12,12 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const result = await signIn();
 
     const form = new FormData(event.target);
+
     const data = Object.fromEntries(form.entries());
+
+    const result = await signIn(data.email.toString(), data.password.toString());
 
     login({
       email: data.email.toString(),

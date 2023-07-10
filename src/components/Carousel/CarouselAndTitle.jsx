@@ -12,6 +12,12 @@ export const CarouselAndTitle = ({title, data, isLoading}) => {
    
     return (
     <>
+    <div style={{
+      backgroundColor:"black",
+      position:"relative",
+      zIndex: 2,
+      paddingTop:20,
+    }}>
     <Text h3>{title}</Text>
     <SwiperCarousel>
         { !isLoading && data.map((e)=>{
@@ -22,7 +28,7 @@ export const CarouselAndTitle = ({title, data, isLoading}) => {
                     key={e.id}
                     title={e.title}
                     style={{
-                        background: "transparent",
+                        backgroundColor: "#00000066",
                         width: "200px",
                       }}
                     >
@@ -46,6 +52,7 @@ export const CarouselAndTitle = ({title, data, isLoading}) => {
         
         )}
     </SwiperCarousel>
+    </div>
     </>
   )
 }

@@ -53,9 +53,9 @@ export const Nav = () => {
       disableBlur
       css={{
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
         backdropFilter: "blur(20px)",
-        height: "80px",
+        height: "100px",
         width:"100%",
         marginBottom: "10px",
       }}
@@ -77,7 +77,8 @@ export const Nav = () => {
         ))}
 
         <Navbar.Content>
-          <Button
+          <Button 
+          
           onPress={handleUserIn}
           >Logueado {user}</Button>
           

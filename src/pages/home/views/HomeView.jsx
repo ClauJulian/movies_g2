@@ -4,7 +4,6 @@ import useSWR from 'swr';
 import Banner from '../../../components/banner/Banner';
 import CarouselAndTitle from '../../../components/Carousel/CarouselAndTitle';
 import useFavorites from '../../../hooks/useFavorites';
-import { getPopularMovies, getMovieDetails } from '../../../services/tmdb.services';
 import { useAuth } from "../../../hooks/useAuth";
 import { getPopularMovies, getMovieDetails, getTopRated, getUpcomingMovies } from '../../../services/tmdb.services';
 

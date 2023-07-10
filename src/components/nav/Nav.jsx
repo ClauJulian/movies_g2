@@ -1,5 +1,5 @@
-import React, { useContext,  useState } from 'react';
-import { useUser } from '../../core/auth/hooks/useUser';
+import React, { useContext,   } from 'react';
+
 import { UserContext } from '../../core/auth/context/UserContext';
 import {  Text, useTheme, Navbar, Link, Button } from '@nextui-org/react';
 // import NavbarContent from '@nextui-org/react/types/navbar/navbar-content';
@@ -52,8 +52,10 @@ export const Nav = () => {
       variant="sticky"
       disableBlur
       css={{
+        display: "flex",
+        justifyContent: "space-evenly",
         backdropFilter: "blur(20px)",
-        height: "80px",
+        height: "100px",
         width:"100%",
         marginBottom: "10px",
       }}
@@ -75,7 +77,8 @@ export const Nav = () => {
         ))}
 
         <Navbar.Content>
-          <Button
+          <Button 
+          
           onPress={handleUserIn}
           >Logueado {user}</Button>
           

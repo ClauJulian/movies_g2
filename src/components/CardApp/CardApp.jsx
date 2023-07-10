@@ -33,7 +33,8 @@ const CardApp = ({bg, title, footer,
           };
 
     return (
-        <Card onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <Card onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+        >
           <Card.Header
             css={{
               position: "absolute",

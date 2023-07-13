@@ -72,11 +72,9 @@ const LoginView = () => {
       width: "100vw",
       }}>
         <h1>Iniciar Sesión</h1>
-        <SignInForm />
-        <SignUpForm />
       </div>
       </div>
-      {showForm === FORMS.SIGN_IN ? <SignUpForm /> : <SignUpForm />}
+      {showForm === FORMS.SIGN_IN ? <SignInForm /> : <SignUpForm />}
 
       <button onClick={handleShowForm}>
         {showForm === FORMS.SIGN_IN ? "Registrarse" : "Iniciar Sesión"}

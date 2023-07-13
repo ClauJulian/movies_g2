@@ -1,9 +1,19 @@
-import React from 'react'
+import { Input } from "@nextui-org/react";
+import React from "react";
 
-const CustomInput = () => {
+const CustomInput = ({ label, type, name, placeholder, ...props }) => {
   return (
-    <div>CustomInput</div>
-  )
-}
+    <Input
+      label={label}
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      css={{
+        width: "100%",
+      }}
+      {...props}
+    />
+  );
+};
 
-export default CustomInput
+export default CustomInput;

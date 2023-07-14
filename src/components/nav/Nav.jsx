@@ -1,21 +1,27 @@
-import React, { useContext,   } from 'react';
-
-import { UserContext } from '../../core/auth/context/UserContext';
+import React, { useContext,  useState } from 'react';
 import {  Text, useTheme, Navbar, Link, Button } from '@nextui-org/react';
-// import NavbarContent from '@nextui-org/react/types/navbar/navbar-content';
+import { useAuth } from '../../core/auth/hooks/useAuth';
+import { signOut } from '../../services/firebase.services';
+import { AUTH_LOGOUT } from '../../core/auth/reducers/authReducer';
 
-
-// armado para probar el Login / Logout  
- 
 
 export const Nav = () => {
-  // estilos de next-ui
+
   const { theme } = useTheme();
 
+  const { state, dispatch } = useAuth();
 
-    const {user, handleUserIn, handleUserOut} = useContext(UserContext);
+  const handleLogout = async () => {
+    await signOut();
 
-    // console.log(user);
+    localStorage.clear();
+
+    dispatch({
+      type: AUTH_LOGOUT,
+    });
+  };
+
+
     const s = {
       link: {
         marginTop: "8px",
@@ -52,10 +58,8 @@ export const Nav = () => {
       variant="sticky"
       disableBlur
       css={{
-        display: "flex",
-        justifyContent: "space-evenly",
         backdropFilter: "blur(20px)",
-        height: "100px",
+        height: "80px",
         width:"100%",
         marginBottom: "10px",
       }}
@@ -66,7 +70,7 @@ export const Nav = () => {
 
       <Navbar.Content variant="underline">
       
-        {user && routes.map((route, i) => (
+        { state.user && routes.map((route, i) => (
           <Navbar.Item>
                   <Link to={route.path}>
                     <Text css={s.link} h4>
@@ -76,15 +80,21 @@ export const Nav = () => {
             </Navbar.Item>
         ))}
 
-        <Navbar.Content>
-          <Button 
+        <Navbar.Content> 
           
-          onPress={handleUserIn}
-          >Logueado {user}</Button>
-          
-          <Button
-          onPress={handleUserOut}
-          >No Logueado {!user}</Button>
+            {state.user
+              ? state.user.displayName || state.user.email
+              : ""}
+             
+            {state.user
+              ? (<Navbar.Item>
+                <Button onPress={handleLogout} color="gradient" auto>
+                Sign Out
+                </Button>
+                </Navbar.Item>)
+              : ""}
+
+        
         </Navbar.Content>
 
       </Navbar.Content>

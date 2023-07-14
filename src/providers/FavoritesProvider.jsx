@@ -7,25 +7,24 @@ import {
     favoritesReducer,
   } from "../reducers/favoritesReducer";
   import { useAuth } from '../core/auth/hooks/useAuth';
-// import { useUser } from '../core/auth/hooks/useUser';
 
 
 
 const FavoritesProvider = ({children}) => {
     
-    // const { state: user } = useUser();
+    const { state: authState } = useAuth;
     const [state, dispatch] = useReducer(favoritesReducer, favoritesInitialState);
 
     useEffect(() => {
         const initialize = async () => {
+
           localStorage.removeItem(favoritesKey);
     
-          // const userId = user;
+          const userId = authState?.user?.uid;
     
-          // if (!userId) return;
+          if (!userId) return;
     
-        //   const favorites = await getFavorites(userId);
-        const favorites = [];
+          const favorites = [];
     
           if (!favorites) return;
     
@@ -34,7 +33,7 @@ const FavoritesProvider = ({children}) => {
     
         initialize();
       }, 
-      // [user]
+      [authState]
       );
 
 
@@ -51,3 +50,5 @@ const FavoritesProvider = ({children}) => {
 }
 
 export default FavoritesProvider
+
+

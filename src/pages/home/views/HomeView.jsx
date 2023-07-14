@@ -16,10 +16,10 @@ export const HomeView = () => {
   // console.log(favIds);
 
   // const promises =  getMovieDetails(favIds);
-  const { logout, user } = useAuth();
+  // const { logout, user } = useAuth();
 
   const handleLogout = () => {
-    logout();
+    // logout();
   };
 
  const { data: favorites, isLoading: favoritesIsLoading } = useSWR(

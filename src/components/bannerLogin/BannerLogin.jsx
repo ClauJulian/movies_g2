@@ -43,7 +43,7 @@ export const BannerLogin = ({data}) => {
             background: "linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)",          
         }}>
       
-      <Card.Header
+      {/* <Card.Header
          css={{
             display: "flex",
             justifyContent: "center",    
@@ -63,7 +63,7 @@ export const BannerLogin = ({data}) => {
                 SUSCRIBITE AHORA
             </motion.h1>
             
-        </Card.Header>
+        </Card.Header> */}
       
     </Card>   
     

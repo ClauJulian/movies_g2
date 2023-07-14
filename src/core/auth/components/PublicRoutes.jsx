@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useUser } from '../hooks/useUser'; 
+import { useAuth } from '../hooks/useAuth';
 
 export const PublicRoutes = ({children}) => {
       

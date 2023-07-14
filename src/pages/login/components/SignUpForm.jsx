@@ -1,16 +1,16 @@
 import React from 'react';
 import CustomInput from "../../../components/CustomInput/CustomInput";
-import { Button, Image, Spacer } from "@nextui-org/react";
-// import useLogin from '../../hooks/useLogin';
+import { Button, Spacer } from "@nextui-org/react";
+import useLogin from '../hooks/useLogin';
 
 const SignUpForm = () => {
 
-    // const { form, setForm, signUpEmail } = useLogin();
+    const { form, setForm, signUpEmail} = useLogin();
 
   return (
     <div>      
         <form
-        // onSubmit={signUpEmail}
+        onSubmit={signUpEmail}
         style={{
         display: "flex",
         flexDirection: "column",
@@ -21,7 +21,7 @@ const SignUpForm = () => {
             type={"email"}
             name={"email"}
             placeholder={"movie_app @ movieapp.com"}
-            // onChange={(e) => setForm({ ...form, email: e.target.value })}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
           <Spacer y={2} />
           <CustomInput
@@ -29,7 +29,7 @@ const SignUpForm = () => {
             type={"password"}
             name={"password"}
             placeholder={"* * * * * * * *"}
-            // onChange={(e) => setForm({ ...form, password: e.target.value })}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
           <Spacer y={2} />
           <Button type="submit" color={"secondary"}>

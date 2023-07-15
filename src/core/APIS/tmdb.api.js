@@ -16,8 +16,7 @@ export const tmdb = axios.create({
       upcoming: "/movie/upcoming",
       nowPlaying: "/movie/now_playing",
       details: (id) => `/movie/${id}`,
-    //   videos: (id) => `/movie/${id}/videos`,
-    //   recommendations: (id) => `/movie/${id}/recommendations`,
+    
     },
     images: {
       url: "https://image.tmdb.org/t/p",
@@ -38,5 +37,4 @@ export const tmdb = axios.create({
   }  
 
 
-    // const tmdb_api_key= "7e7762d08933bf498bffaf370494b5f6";
-// const tmdb_api_token= "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTc3NjJkMDg5MzNiZjQ5OGJmZmFmMzcwNDk0YjVmNiIsInN1YiI6IjY0OTMyNGNmYzI4MjNhMDBlMmU5ODM0YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f_Io2RdrrcuWVYrF3jmz6dmmIqan_mFod7660jaFRf4"
+    

@@ -26,7 +26,6 @@ const LoginView = () => {
         if (random > 5)
           return popularMovies[Math.floor(Math.random() * popularMovies.length)];
           return popularMovies["1"];
-        // return popularSeries[Math.floor(Math.random() * popularSeries.length)];
       };
   
       const randomMovieOrSerie = getRandomMovieOrSerie();
@@ -34,8 +33,6 @@ const LoginView = () => {
     }, [
       popularMovies,
       popularMoviesIsLoading,
-      // popularSeries,
-      // popularSeriesIsLoading,
     ]);
 
 
